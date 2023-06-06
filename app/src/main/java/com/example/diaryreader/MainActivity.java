@@ -10,7 +10,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Запускаем LoginActivity вместо BookListActivity
+        // запуск окна с логином
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
