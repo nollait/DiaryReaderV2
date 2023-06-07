@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +15,9 @@ import java.util.ArrayList;
 public class BookListActivity extends AppCompatActivity {
     private ArrayList<Book> books;
     private GridView gridView;
+    private BookAdapter bookAdapter;
+
+    private ArrayList<Book> filteredBooks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +40,36 @@ public class BookListActivity extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 Intent intent = new Intent(BookListActivity.this, BookReviewActivity.class);
-                intent.putExtra("book", books.get(position));
+                intent.putExtra("book", filteredBooks.get(position)); // Здесь используем filteredBooks
                 startActivity(intent);
+            }
+        });
+        // Находим EditText и Button для поиска
+        EditText searchEditText = findViewById(R.id.search_edittext);
+        Button searchButton = findViewById(R.id.search_button);
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String query = searchEditText.getText().toString().toLowerCase();
+                filteredBooks = new ArrayList<>();
+
+                // Ищем книги, удовлетворяющие поисковому запросу
+                for (Book book : books) {
+                    if (book.getTitle().toLowerCase().contains(query)
+                            || book.getAuthor().toLowerCase().contains(query)) {
+                        filteredBooks.add(book);
+                    }
+                }
+
+                // Создаем новый адаптер, если bookAdapter равен null
+                if (bookAdapter == null) {
+                    bookAdapter = new BookAdapter(BookListActivity.this, filteredBooks);
+                    gridView.setAdapter(bookAdapter);
+                } else {
+                    // Обновляем адаптер с отфильтрованными книгами
+                    bookAdapter.updateBooks(filteredBooks);
+                }
             }
         });
     }

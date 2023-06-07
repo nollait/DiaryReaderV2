@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnSign, btnReg;
     FirebaseAuth auth; //для авторизации
     FirebaseDatabase db; //для подключения к базе данных
-    DatabaseReference users; //для раьоты с таблицами внутри базы данных
+    DatabaseReference users; //для работы с таблицами внутри базы данных
 
     RelativeLayout root;
 
@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         root = findViewById(R.id.root_element);
 
         auth = FirebaseAuth.getInstance(); //запуск авторизации
-        db = FirebaseDatabase.getInstance(); //подключение к базу данных
-        users = db.getReference("Users"); //с какой таьлицой работать
+        db = FirebaseDatabase.getInstance(); //подключение к базе данных
+        users = db.getReference("Users"); //с какой таблицей работать
 
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void showRegWindow() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setTitle("Зарегестрироваться");
+        dialog.setTitle("Зарегистрироваться");
         dialog.setMessage("Введите все данные для регистрации");
 
         LayoutInflater inflater = LayoutInflater.from(this); //созжаёи шаблон

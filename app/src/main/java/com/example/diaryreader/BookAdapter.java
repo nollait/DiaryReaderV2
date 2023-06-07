@@ -33,6 +33,11 @@ public class BookAdapter extends BaseAdapter {
         return position;
     }
 
+    public void updateBooks(ArrayList<Book> books) {
+        this.books = books;
+        notifyDataSetChanged();
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView imageView;
