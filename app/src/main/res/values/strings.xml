@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">BookNotes</string>
     <string name="app_in_name">BookNotes</string>
-    <string name="app_name_ver">0.1.9 Alpha</string>
+    <string name="app_name_ver">0.2.10 Alpha</string>
     <string name="text_bottom">Вход в учётную запись</string>
     <string name="btnSign">Войти</string>
     <string name="btnReg">Зарегестрироваться</string>
