@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "806309199813",
+    "project_id": "booknotes-1b952",
+    "storage_bucket": "booknotes-1b952.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806309199813:android:27f06a766245d93faad5ac",
+        "android_client_info": {
+          "package_name": "com.example.diaryreader"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "806309199813-f4i15ltd38hi0svo7k540nevll6jmkpg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.diaryreader",
+            "certificate_hash": "8d9a2b22703e3b97235cbab430ff1fa59c088717"
+          }
+        },
+        {
+          "client_id": "806309199813-2vfsn7o1uij9fruj3vshg5o3jgllqknk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5BeFu4ZZCwxWI4bbFhiaqDEE-CBJGb6o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "806309199813-2vfsn7o1uij9fruj3vshg5o3jgllqknk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

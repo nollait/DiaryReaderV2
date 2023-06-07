@@ -14,8 +14,8 @@ public class LoginActivity extends AppCompatActivity {
     private EditText passwordEditText;
     private Button loginButton;
 
-    private static final String USERNAME = "nollait";
-    private static final String PASSWORD = "$seaWays$";
+    private static final String USERNAME = "KGB";
+    private static final String PASSWORD = "IMPERATORTOP";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
