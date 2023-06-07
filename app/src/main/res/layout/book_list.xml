@@ -7,6 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:background="@color/background"
         android:orientation="vertical">
 
         <EditText
@@ -18,9 +19,9 @@
 
         <Button
             android:id="@+id/search_button"
-            android:layout_width="131dp"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:text="Искать" />
+            android:text="Искать книгу" />
 
         <GridView
             android:id="@+id/gridview"
@@ -33,7 +34,7 @@
             android:gravity="center"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
-            android:background="#dddddd"/>
+            android:background="@color/background"/>
 
     </LinearLayout>
 
