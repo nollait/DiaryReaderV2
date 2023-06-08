@@ -65,11 +65,10 @@ public class MainActivity extends AppCompatActivity {
     private void showSignWindow(){
             AlertDialog.Builder dialog = new AlertDialog.Builder(this);
             dialog.setTitle("Войти");
-            dialog.setMessage("Введите данные для Входа");
 
-            LayoutInflater inflater = LayoutInflater.from(this); //созжаёи шаблон
+            LayoutInflater inflater = LayoutInflater.from(this); //создаём шаблон
             View signWindow = inflater.inflate(R.layout.sign_window, null); //помещаем шаблон
-            dialog.setView(signWindow); //шаблрн для всплыааюзего окна
+            dialog.setView(signWindow); //шаблон для всплывающего окна
 
             MaterialEditText email = signWindow.findViewById(R.id.emailField);
             MaterialEditText pass = signWindow.findViewById(R.id.passField);
@@ -89,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     if (pass.getText().toString().length() < 4) {
-                        Snackbar.make(root, "Введите пароль, который больше 4 символов", Snackbar.LENGTH_SHORT).show();
+                        Snackbar.make(root, "Введите пароль, состоящий более чем из 4 символов", Snackbar.LENGTH_SHORT).show();
                         return;
                     }
 
@@ -103,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    Snackbar.make(root, "Ошибка авторизации." + e.getMessage(), Snackbar.LENGTH_SHORT).show();
+                                    Snackbar.make(root, "Ошибка авторизации!" + e.getMessage(), Snackbar.LENGTH_SHORT).show();
                                 }
                             });
                 }
@@ -113,12 +112,11 @@ public class MainActivity extends AppCompatActivity {
     }
     private void showRegWindow() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setTitle("Зарегистрироваться");
-        dialog.setMessage("Введите все данные для регистрации");
+        dialog.setTitle("Регистрация");
 
-        LayoutInflater inflater = LayoutInflater.from(this); //созжаёи шаблон
+        LayoutInflater inflater = LayoutInflater.from(this); //создаём шаблон
         View regWindow = inflater.inflate(R.layout.reg_window, null); //помещаем шаблон
-        dialog.setView(regWindow); //шаблрн для всплыааюзего окна
+        dialog.setView(regWindow); //шаблон для всплывающего окна
 
         MaterialEditText email = regWindow.findViewById(R.id.emailField);
         MaterialEditText pass = regWindow.findViewById(R.id.passField);
@@ -142,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 if (pass.getText().toString().length() < 4) {
-                    Snackbar.make(root, "Введите пароль, который больше 4 символов", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(root, "Введите пароль, состоящий более чем из 4 символов", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -167,12 +165,11 @@ public class MainActivity extends AppCompatActivity {
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Snackbar.make(root, "Ошибка регистрации" + e.getMessage(), Snackbar.LENGTH_SHORT).show();
+                                Snackbar.make(root, "Ошибка регистрации!" + e.getMessage(), Snackbar.LENGTH_SHORT).show();
                             }
                         });
             }
         });
-
         dialog.show();
     }
 }
