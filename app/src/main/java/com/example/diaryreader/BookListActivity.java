@@ -16,7 +16,6 @@ public class BookListActivity extends AppCompatActivity {
     private ArrayList<Book> books;
     private GridView gridView;
     private BookAdapter bookAdapter;
-
     private ArrayList<Book> filteredBooks;
 
     @Override
@@ -39,8 +38,9 @@ public class BookListActivity extends AppCompatActivity {
         gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                ArrayList<Book> booksToOpen = filteredBooks != null ? filteredBooks : books;
                 Intent intent = new Intent(BookListActivity.this, BookReviewActivity.class);
-                intent.putExtra("book", filteredBooks.get(position)); // Здесь используем filteredBooks
+                intent.putExtra("book", booksToOpen.get(position));
                 startActivity(intent);
             }
         });
