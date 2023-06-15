@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                // Рег пользлвателя
+                // Рег пользователя
                 auth.createUserWithEmailAndPassword(email.getText().toString(), pass.getText().toString())
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
