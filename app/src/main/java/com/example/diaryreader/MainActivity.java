@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -47,6 +48,33 @@ public class MainActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance(); //запуск авторизации
         db = FirebaseDatabase.getInstance(); //подключение к базе данных
         users = db.getReference("Users"); //с какой таблицей работать
+
+        // Получаем SharedPreferences
+        SharedPreferences preferences = getSharedPreferences("MY_PREFS", MODE_PRIVATE);
+
+        // Получаем email и пароль из SharedPreferences
+        String email = preferences.getString("EMAIL", "");
+        String pass = preferences.getString("PASS", "");
+
+        // Проверяем, есть ли сохраненные данные авторизации
+        if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(pass)) {
+            // Если есть, производим автоматическую авторизацию
+            auth.signInWithEmailAndPassword(email, pass)
+                    .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        @Override
+                        public void onSuccess(AuthResult authResult) {
+                            // Если авторизация прошла успешно, переходим на экран списка книг
+                            startActivity(new Intent(MainActivity.this, BookListActivity.class));
+                            finish();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            // Если произошла ошибка при авторизации, выводим сообщение
+                            Snackbar.make(root, "Ошибка авторизации!" + e.getMessage(), Snackbar.LENGTH_SHORT).show();
+                        }
+                    });
+        }
 
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,6 +126,12 @@ public class MainActivity extends AppCompatActivity {
                                 public void onSuccess(AuthResult authResult) {
                                     startActivity(new Intent(MainActivity.this, BookListActivity.class));
                                     finish();
+
+                                    SharedPreferences preferences = getSharedPreferences("MY_PREFS", MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = preferences.edit();
+                                    editor.putString("EMAIL", email.getText().toString());
+                                    editor.putString("PASS", pass.getText().toString());
+                                    editor.apply();
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override

@@ -32,6 +32,18 @@ public class BookListActivity extends AppCompatActivity {
         books.add(new Book(R.drawable.book6, "Властелин колец. Хранители кольца", "Толкин Джон Рональд Руэл"));
         books.add(new Book(R.drawable.book7, "Гордость и предубеждение", "Джейн Остин"));
         books.add(new Book(R.drawable.book8, "Гроздья гнева", "Джон Стейнбек"));
+        books.add(new Book(R.drawable.book9, "Анна Каренина", "Лев Толстой"));
+        books.add(new Book(R.drawable.book10, "Тень ветра", "Карлос Руис Сафон"));
+        books.add(new Book(R.drawable.book11, "Отцы и дети", "Иван Тургенев"));
+        books.add(new Book(R.drawable.book12, "Мертвые души", "Николай Гоголь"));
+        books.add(new Book(R.drawable.book13, "Преступление и наказание", "Федор Достоевский"));
+        books.add(new Book(R.drawable.book14, "Вишневый сад", "Антон Чехов"));
+        books.add(new Book(R.drawable.book15, "Легион", "Дэн Абнетт"));
+        books.add(new Book(R.drawable.book16, "Кровавые ангелы", "Алексей Раев"));
+        books.add(new Book(R.drawable.book17, "Темный Империум", "Гай Хейли"));
+        books.add(new Book(R.drawable.book18, "Комиссар Каин. Герой Империума", "Сэнди Митчелл"));
+        books.add(new Book(R.drawable.book19, "Преподобный Гу", "Гу Чжэнь Жэнь"));
+        books.add(new Book(R.drawable.book20, "Мечта на поражение", "Алексей Калугин"));
 
         gridView = (GridView) findViewById(R.id.gridview);
         BookAdapter adapter = new BookAdapter(this, books);
